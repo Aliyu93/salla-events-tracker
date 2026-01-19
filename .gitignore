@@ -7,7 +7,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Build outputs
-dist/
+# dist/ - keeping dist for jsDelivr CDN
 build/
 out/
 *.tsbuildinfo
@@ -80,7 +80,7 @@ jspm_packages/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# dist - keeping for jsDelivr
 
 # Gatsby files
 .cache/
