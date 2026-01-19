@@ -1,19 +1,20 @@
 const l = /* @__PURE__ */ new Map();
-(typeof window > "u" || !window.Salla) && console.error("Salla is not available. Make sure Salla Twilight SDK is loaded.");
+console.log("[StoreEventsTracker] Script loaded");
+(typeof window > "u" || !window.Salla) && console.error("[StoreEventsTracker] Salla is not available. Make sure Salla Twilight SDK is loaded.");
 window.Salla.onReady(() => {
-  window.Salla.analytics.registerTracker({
+  console.log("[StoreEventsTracker] Salla ready, registering tracker..."), window.Salla.analytics.registerTracker({
     name: "StoreEventsTracker",
-    track: (e, r) => {
-      const a = l.get(e);
-      if (a)
+    track: (e, a) => {
+      const r = l.get(e);
+      if (r)
         try {
-          a(r);
-        } catch (n) {
-          console.error(`Error handling event ${e}:`, n);
+          r(a);
+        } catch (o) {
+          console.error(`Error handling event ${e}:`, o);
         }
     },
     page: (e) => {
-      console.log("Page Event:", e);
+      console.log("[StoreEventsTracker] Page Event:", e);
     }
-  });
+  }), console.log("[StoreEventsTracker] Tracker registered successfully");
 });
